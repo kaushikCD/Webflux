@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="webflux-demo" />
+        <module name="apiclient" />
+        <module name="traditional-controller" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Api client" target="20" />
+      <module name="normal controller" target="20" />
+      <module name="reactive controller" target="1.5" />
+      <module name="traditional controller" target="20" />
+      <module name="webflux-demo (1)" target="20" />
+      <module name="webflux-demo (2)" target="20" />
+      <module name="webflux-demo (3)" target="20" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Api client" options="-parameters" />
+      <module name="apiclient" options="-parameters" />
+      <module name="normal controller" options="-parameters" />
+      <module name="reactive controller" options="" />
+      <module name="traditional controller" options="-parameters" />
+      <module name="traditional-controller" options="-parameters" />
+      <module name="webflux-demo" options="-parameters" />
+      <module name="webflux-demo (1)" options="-parameters" />
+      <module name="webflux-demo (2)" options="-parameters" />
+      <module name="webflux-demo (3)" options="-parameters" />
+    </option>
+  </component>
+</project>
