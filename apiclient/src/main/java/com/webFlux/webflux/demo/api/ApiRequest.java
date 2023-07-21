@@ -7,14 +7,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.time.Duration;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
 public class ApiRequest {
-    public static void main(String[] args) throws ExecutionException, InterruptedException {
+    public static void main(String[] args)
+    {
         System.out.println("Starting a WebFlux API call");
-        CompletableFuture<String> reactiveResults =reactiveEndpoint();
+        reactiveEndpoint();
         traditionalEndpoint();
-        System.out.println("Reactive API response: "+ reactiveResults.get());
     }
     private static void traditionalEndpoint() {
         RestTemplate template = new RestTemplate();
@@ -22,17 +21,15 @@ public class ApiRequest {
         String result = traditionalResponse.getBody();
         System.out.println("Normal API Response: " + result);
     }
-    private static CompletableFuture<String> reactiveEndpoint() {
+    private static CompletableFuture<Void> reactiveEndpoint() {
         WebClient clientCall = WebClient.create("http://localhost:8080");
-        return clientCall.get()
+         return clientCall.get()
                 .uri("/monoReactive")
                 .retrieve()
                 .bodyToMono(String.class)
                 .delaySubscription(Duration.ofSeconds(3))
-                .toFuture();
+                .toFuture().thenAccept(response -> System.out.println("Reactive Endpoint response: " + response));
     }
-
-
 }
 
 
