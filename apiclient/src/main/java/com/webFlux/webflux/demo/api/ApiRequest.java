@@ -12,9 +12,9 @@ import java.util.concurrent.ExecutionException;
 public class ApiRequest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         System.out.println("Starting a WebFlux API call");
-        CompletableFuture<String> reactiveResult =reactiveEndpoint();
+        CompletableFuture<String> reactiveResults =reactiveEndpoint();
         traditionalEndpoint();
-        System.out.println("Reactive API response: "+ reactiveResult.get());
+        System.out.println("Reactive API response: "+ reactiveResults.get());
     }
     private static void traditionalEndpoint() {
         RestTemplate template = new RestTemplate();
